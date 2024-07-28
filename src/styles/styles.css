@@ -1,0 +1,55 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 20px;
+	justify-content: center;
+	text-align: center;
+	background-color: #696969;
+}
+
+.body {
+	display: flex;
+	flex-direction: row;
+}
+
+label {
+	font-weight: bold;
+	text-align: left;
+}
+
+input {
+	height: 30px;
+	border-radius: 5%;
+}
+
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 10px;
+}
+
+input {
+	padding-left: 2px;
+}
+
+.educationForm,
+.personalInfoForm,
+.workExperienceForm {
+	margin: 20px;
+	padding: 20px;
+	border-radius: 5%;
+	background-color: #b9bcc2;
+}
+
+.resume {
+	background-color: #b9bcc2;
+	padding: 20px;
+	margin: 40px;
+	width: 600px;
+	height: 750px;
+}
