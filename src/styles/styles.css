@@ -37,12 +37,12 @@ input {
 	padding-left: 2px;
 }
 
-.educationForm,
-.personalInfoForm,
-.workExperienceForm {
+#educationForm,
+#personalInfoForm,
+#workExperienceForm {
 	margin: 20px;
 	padding: 20px;
-	border-radius: 5%;
+	border-radius: 25px;
 	background-color: #b9bcc2;
 }
 
@@ -52,4 +52,36 @@ input {
 	margin: 40px;
 	width: 600px;
 	height: 750px;
+}
+
+.sectionHeader {
+	display: flex;
+	width: 300px;
+	margin: 10px;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.arrow-down {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.arrow-up {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-135deg);
+}
+
+.dropdown-arrow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

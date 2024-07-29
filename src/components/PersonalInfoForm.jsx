@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CustomInput from "./CustomInput";
 import SubmitButton from "./SubmitButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 export default function PersonalInfoForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +10,12 @@ export default function PersonalInfoForm() {
     email: "",
     phoneNo: "",
   })
+
+  const [isShown, setIsShown] = useState(false);
+
+  const toggleForm = (e) => {
+    setIsShown(!isShown);
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,8 +26,25 @@ export default function PersonalInfoForm() {
   }
 
   return (
-    <div className="personalInfoForm">
-      <form>
+    <div id="personalInfoForm">
+      <div className="sectionHeader">
+        <div>
+          <h2>Personal info</h2>
+        </div>
+        {isShown && 
+          <div className='dropdown-arrow'>
+            <FontAwesomeIcon icon={faAngleUp} onClick={toggleForm} />
+          </div>
+        }
+        {!isShown && 
+          <div className='dropdown-arrow'>
+            <FontAwesomeIcon icon={faAngleDown} onClick={toggleForm} />
+          </div>
+        }
+      </div>
+
+      {isShown && (
+        <form className="personalInfo">
         <CustomInput 
           label="Name: " 
           name="name" 
@@ -45,6 +70,7 @@ export default function PersonalInfoForm() {
           formData={formData} 
         />
       </form>
+      )}
     </div>
   )
 }
