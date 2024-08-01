@@ -1,6 +1,5 @@
 import { useState } from "react";
 import CustomInput from "./CustomInput";
-import SubmitButton from "./SubmitButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,13 +8,13 @@ export default function WorkExperienceForm() {
     companyName: "",
     positionTitle: "",
     responsibilities: "",
-    startDate: "",
-    endDate: "",
+    workStartDate: "",
+    workEndDate: "",
   })
 
   const [isShown, setIsShown] = useState(false);
 
-  const toggleForm = (e) => {
+  const toggleForm = () => {
     setIsShown(!isShown);
   }
 
@@ -63,17 +62,17 @@ export default function WorkExperienceForm() {
           />
           <CustomInput 
             label="Start date: " 
-            name="startDate" 
+            name="workStartDate" 
             type="date"
-            value={formData.startDate} 
+            value={formData.workStartDate} 
             onChange={handleChange} 
             placeholder="Enter start date"
           />
           <CustomInput 
             label="End date: " 
-            name="endDate" 
+            name="workEndDate" 
             type="date"
-            value={formData.endDate} 
+            value={formData.workEndDate} 
             onChange={handleChange} 
             placeholder="Enter end date"
           />
@@ -83,9 +82,6 @@ export default function WorkExperienceForm() {
             value={formData.location} 
             onChange={handleChange} 
             placeholder="Enter responsibilities"
-          />
-          <SubmitButton 
-            formData={formData} 
           />
         </form>
       )}

@@ -1,30 +1,13 @@
 import { useState } from "react";
 import CustomInput from "./CustomInput";
-import SubmitButton from "./SubmitButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
-export default function EducationForm() {
-  const [formData, setFormData] = useState({
-    schoolName: "",
-    title: "",
-    location: "",
-    startDate: "",
-    endDate: "",
-  })
-
+export default function EducationForm({ onChange, schoolName, location, schoolStartDate, schoolEndDate, educationTitle }) {
   const [isShown, setIsShown] = useState(false);
 
-  const toggleForm = (e) => {
+  const toggleForm = () => {
     setIsShown(!isShown);
-  }
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
   }
 
   return (
@@ -50,42 +33,39 @@ export default function EducationForm() {
           <CustomInput 
             label="School: " 
             name="schoolName" 
-            value={formData.schoolName} 
-            onChange={handleChange} 
+            value={schoolName} 
+            onChange={onChange} 
             placeholder="Enter school / university"
           />
           <CustomInput 
             label="Title of Study: " 
-            name="title" 
-            value={formData.title} 
-            onChange={handleChange} 
+            name="educationTitle" 
+            value={educationTitle} 
+            onChange={onChange} 
             placeholder="Enter title of study"
           />
           <CustomInput 
             label="Location: " 
             name="location" 
-            value={formData.location} 
-            onChange={handleChange} 
+            value={location} 
+            onChange={onChange} 
             placeholder="Enter location"
           />
           <CustomInput 
             label="Start date: " 
-            name="startDate" 
+            name="schoolStartDate" 
             type="date"
-            value={formData.startDate} 
-            onChange={handleChange} 
+            value={schoolStartDate} 
+            onChange={onChange} 
             placeholder="Enter start date"
           />
           <CustomInput 
             label="End date: " 
-            name="endDate" 
+            name="schoolEndDate" 
             type="date"
-            value={formData.endDate} 
-            onChange={handleChange} 
+            value={schoolEndDate} 
+            onChange={onChange} 
             placeholder="Enter end date"
-          />
-          <SubmitButton 
-            formData={formData} 
           />
         </form>
       )}

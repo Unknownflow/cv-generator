@@ -48,10 +48,11 @@ input {
 
 .resume {
 	background-color: #b9bcc2;
-	padding: 20px;
+	padding: 50px;
 	margin: 40px;
 	width: 600px;
 	height: 750px;
+	text-align: left;
 }
 
 .sectionHeader {
@@ -84,4 +85,19 @@ input {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.educationHeader,
+.workExperienceHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.personalInfoCV,
+.educationInfoCV {
+	margin-bottom: 10px;
+}
+
+.educationTime {
+	justify-content: right;
 }
