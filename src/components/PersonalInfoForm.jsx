@@ -3,8 +3,9 @@ import CustomInput from "./CustomInput";
 export default function PersonalInfoForm({ onChange, name, email, phoneNo }) {
   return (
     <form id="personalInfoForm">
-      <h2>Personal info</h2>
-      
+      <div className="sectionHeader">
+        <h2>Personal info</h2>
+      </div>
       <CustomInput 
         label="Name: " 
         name="name" 

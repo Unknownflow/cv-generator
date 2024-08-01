@@ -4,6 +4,7 @@ import PersonalInfoForm from './components/PersonalInfoForm'
 import EducationForm from './components/EducationForm'
 import WorkExperienceForm from './components/WorkExperienceForm'
 import { useState } from 'react';
+import Resume from './components/Resume';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState(
@@ -42,7 +43,6 @@ function App() {
 
   const handleEducationInfoChange = (e) => {
     const key = e.target.id;
-    console.log(educationInfo);
     setEducationInfo({ ...educationInfo, [key]: e.target.value });
   }
 
@@ -50,9 +50,6 @@ function App() {
     const key = e.target.id;
     setWorkInfo({ ...workInfo, [key]: e.target.value });
   }
-
-
-
 
   return (
     <div className="body">
@@ -81,53 +78,11 @@ function App() {
         />
       </div>
       <div className='resume'>
-        <div className='personalInfoCV'>
-          <div className='personalName'>
-            <h2>{personalInfo.name}</h2>
-          </div>
-          <div className='personalContact'>
-            <span className='personalEmail'>{personalInfo.email}</span>
-            {personalInfo.email && personalInfo.phoneNo && (
-              <span>, </span>
-            )}
-            <span className='personalPhoneNo'> {personalInfo.phoneNo}</span>
-          </div>
-        </div>
-        <div className='educationInfoCV'>
-          <h3>Education</h3>
-          <div className='educationHeader'>
-            <span>{educationInfo.schoolName}</span>
-            <div className='educationTime'>
-              <span>{educationInfo.schoolStartDate}</span>
-              {educationInfo.schoolStartDate &&
-                <span> - </span> 
-              }
-              <span>{educationInfo.schoolEndDate}</span>
-            </div>
-          </div>
-          <div className='educationTitle'>
-            <span>{educationInfo.educationTitle}</span>
-            {educationInfo.educationTitle && educationInfo.location && 
-              <spam>, </spam> 
-            }
-            <span>{educationInfo.location}</span>
-          </div>
-        </div>
-        <div className='workExperienceCV'>
-          <h3>Work experience</h3>  
-          <div className='workExperienceHeader'>
-            <span>{workInfo.companyName}</span>
-            <div className='workExperienceTime'>
-              <span>{workInfo.workStartDate}</span>
-              {workInfo.workStartDate &&
-                <span> - </span>
-              }
-              <span>{workInfo.workEndDate}</span>
-            </div>
-          </div>
-          <div className='workExperienceTitle'>{workInfo.positionTitle}</div>
-          <div className='workResponsibilities'>{workInfo.responsibilities}</div>
-        </div>
+        <Resume 
+          personalInfo={personalInfo}
+          educationInfo={educationInfo}
+          workInfo={workInfo}
+        />
       </div>
     </div>
   )
