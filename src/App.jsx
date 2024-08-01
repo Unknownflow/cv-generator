@@ -71,7 +71,14 @@ function App() {
           schoolEndDate={educationInfo.schoolEndDate}
           educationTitle={educationInfo.educationTitle}
         />
-        <WorkExperienceForm />
+        <WorkExperienceForm 
+          onChange={handleWorkInfoChange}
+          companyName={workInfo.companyName}
+          positionTitle={workInfo.positionTitle}
+          workStartDate={workInfo.workStartDate}
+          workEndDate={workInfo.workEndDate}
+          responsibilities={workInfo.responsibilities}
+        />
       </div>
       <div className='resume'>
         <div className='personalInfoCV'>
@@ -109,11 +116,17 @@ function App() {
         <div className='workExperienceCV'>
           <h3>Work experience</h3>  
           <div className='workExperienceHeader'>
-            <span>Google{workInfo.companyName}</span>
-            <span>Aug 2026{workInfo.workStartDate} - Aug 2029{workInfo.workEndDate}</span>
+            <span>{workInfo.companyName}</span>
+            <div className='workExperienceTime'>
+              <span>{workInfo.workStartDate}</span>
+              {workInfo.workStartDate &&
+                <span> - </span>
+              }
+              <span>{workInfo.workEndDate}</span>
+            </div>
           </div>
-          <div className='workExperienceTitle'>Software Developer{workInfo.workRole}</div>
-          <div className='workResponsibilities'>Helped google build new software applications{workInfo.workResponsibilities}</div>
+          <div className='workExperienceTitle'>{workInfo.positionTitle}</div>
+          <div className='workResponsibilities'>{workInfo.responsibilities}</div>
         </div>
       </div>
     </div>

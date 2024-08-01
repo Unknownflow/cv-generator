@@ -56,6 +56,7 @@ export default function EducationForm({ onChange, schoolName, location, schoolSt
             name="schoolStartDate" 
             type="date"
             value={schoolStartDate} 
+            max={schoolEndDate}
             onChange={onChange} 
             placeholder="Enter start date"
           />
@@ -64,6 +65,7 @@ export default function EducationForm({ onChange, schoolName, location, schoolSt
             name="schoolEndDate" 
             type="date"
             value={schoolEndDate} 
+            min={schoolStartDate}
             onChange={onChange} 
             placeholder="Enter end date"
           />

@@ -3,27 +3,11 @@ import CustomInput from "./CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
-export default function WorkExperienceForm() {
-  const [formData, setFormData] = useState({
-    companyName: "",
-    positionTitle: "",
-    responsibilities: "",
-    workStartDate: "",
-    workEndDate: "",
-  })
-
+export default function WorkExperienceForm({ onChange, companyName, positionTitle, workStartDate, workEndDate, responsibilities }) {
   const [isShown, setIsShown] = useState(false);
 
   const toggleForm = () => {
     setIsShown(!isShown);
-  }
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
   }
 
   return (
@@ -49,38 +33,40 @@ export default function WorkExperienceForm() {
           <CustomInput 
             label="Company: " 
             name="companyName" 
-            value={formData.schoolName} 
-            onChange={handleChange} 
+            value={companyName} 
+            onChange={onChange} 
             placeholder="Enter company"
           />
           <CustomInput 
             label="Position title: " 
             name="positionTitle" 
-            value={formData.title} 
-            onChange={handleChange} 
+            value={positionTitle} 
+            onChange={onChange} 
             placeholder="Enter position title"
           />
           <CustomInput 
             label="Start date: " 
             name="workStartDate" 
             type="date"
-            value={formData.workStartDate} 
-            onChange={handleChange} 
+            value={workStartDate}
+            max={workEndDate}
+            onChange={onChange} 
             placeholder="Enter start date"
           />
           <CustomInput 
             label="End date: " 
             name="workEndDate" 
             type="date"
-            value={formData.workEndDate} 
-            onChange={handleChange} 
+            value={workEndDate} 
+            min={workStartDate}
+            onChange={onChange} 
             placeholder="Enter end date"
           />
           <CustomInput 
             label="Responsibilities: " 
             name="responsibilities" 
-            value={formData.location} 
-            onChange={handleChange} 
+            value={responsibilities} 
+            onChange={onChange} 
             placeholder="Enter responsibilities"
           />
         </form>
