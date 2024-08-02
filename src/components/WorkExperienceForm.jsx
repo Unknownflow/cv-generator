@@ -1,76 +1,70 @@
-import { useState } from "react";
 import CustomInput from "./CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
-export default function WorkExperienceForm({ onChange, companyName, positionTitle, workStartDate, workEndDate, responsibilities }) {
-  const [isShown, setIsShown] = useState(false);
-
-  const toggleForm = () => {
-    setIsShown(!isShown);
-  }
-
+export default function WorkExperienceForm({ workInfo, onChange, remove }) {
   return (
     <div id="workExperienceForm">
       <div className="sectionHeader">
-        <div>
           <h2>Work experience</h2>
-        </div>
-        {isShown && 
-          <div className='dropdown-arrow'>
-            <FontAwesomeIcon icon={faAngleUp} onClick={toggleForm} />
-          </div>
-        }
-        {!isShown && 
-          <div className='dropdown-arrow'>
-            <FontAwesomeIcon icon={faAngleDown} onClick={toggleForm} />
-          </div>
-        }
       </div>
 
-      {isShown && (
-        <form>
-          <CustomInput 
-            label="Company: " 
-            name="companyName" 
-            value={companyName} 
-            onChange={onChange} 
-            placeholder="Enter company"
-          />
-          <CustomInput 
-            label="Position title: " 
-            name="positionTitle" 
-            value={positionTitle} 
-            onChange={onChange} 
-            placeholder="Enter position title"
-          />
-          <CustomInput 
-            label="Start date: " 
-            name="workStartDate" 
-            type="date"
-            value={workStartDate}
-            max={workEndDate}
-            onChange={onChange} 
-            placeholder="Enter start date"
-          />
-          <CustomInput 
-            label="End date: " 
-            name="workEndDate" 
-            type="date"
-            value={workEndDate} 
-            min={workStartDate}
-            onChange={onChange} 
-            placeholder="Enter end date"
-          />
-          <CustomInput 
-            label="Responsibilities: " 
-            name="responsibilities" 
-            value={responsibilities} 
-            onChange={onChange} 
-            placeholder="Enter responsibilities"
-          />
-        </form>
-      )}
+      {
+        workInfo.map((work, index) => (
+          <div className="workContainer" key={work.id}>
+            {workInfo.length >= 1 &&
+              <div className="subHeading">
+                <div>
+                  <h3>Work experience {index+1}</h3>
+                </div>
+                <div onClick={(e) => remove(e, work.id)}>
+                  <FontAwesomeIcon icon={ faTrashCan } />
+                </div>
+              </div>
+            }
+
+            <CustomInput 
+              label="Company: " 
+              name="companyName" 
+              value={work.companyName} 
+              onChange={(e) => onChange(e, work.id)} 
+              placeholder="Enter company"
+            />
+            <CustomInput 
+              label="Position title: " 
+              name="positionTitle" 
+              value={work.positionTitle} 
+              onChange={(e) => onChange(e, work.id)} 
+              placeholder="Enter position title"
+            />
+            <CustomInput 
+              label="Start date: " 
+              name="startDate" 
+              type="date"
+              value={work.startDate}
+              max={work.endDate}
+              onChange={(e) => onChange(e, work.id)} 
+              placeholder="Enter start date"
+            />
+            <CustomInput 
+              label="End date: " 
+              name="endDate" 
+              type="date"
+              value={work.endDate} 
+              min={work.startDate}
+              onChange={(e) => onChange(e, work.id)} 
+              placeholder="Enter end date"
+            />
+            <CustomInput 
+              label="Responsibilities: " 
+              name="responsibilities" 
+              value={work.responsibilities} 
+              onChange={(e) => onChange(e, work.id)} 
+              placeholder="Enter responsibilities"
+            />
+          </div>
+
+      ))} 
     </div>
   )
 }

@@ -1,27 +1,33 @@
 function EducationCV(educationInfo) {
-  educationInfo = educationInfo["educationInfo"];
+  educationInfo = educationInfo['educationInfo'];
 
   return (
     <div className='educationInfoCV'>
-    <h3>Education</h3>
-    <div className='educationHeader'>
-      <span>{educationInfo.schoolName}</span>
-      <div className='educationTime'>
-        <span>{educationInfo.schoolStartDate}</span>
-        {educationInfo.schoolStartDate &&
-          <span> - </span> 
-        }
-        <span>{educationInfo.schoolEndDate}</span>
-      </div>
-    </div>
-    <div className='educationTitle'>
-      <span>{educationInfo.educationTitle}</span>
-      {educationInfo.educationTitle && educationInfo.location && 
-        <spam>, </spam> 
+      <h3>Education</h3>
+      {
+        educationInfo.map((education) => (
+          <div key={education.id}>
+            <div className='educationHeader' >
+              <span>{education.schoolName}</span>
+              <div className='educationTime'>
+                <span>{education.startDate}</span>
+                {education.startDate &&
+                  <span> - </span> 
+                }
+                <span>{education.endDate}</span>
+              </div>
+            </div>
+            <div className='educationTitle'>
+              <span>{education.title}</span>
+              {education.title && education.location && 
+                <spam>, </spam> 
+              }
+              <span>{education.location}</span>
+            </div>
+          </div>
+        ))
       }
-      <span>{educationInfo.location}</span>
     </div>
-  </div>
   )
 }
 

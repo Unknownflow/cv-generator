@@ -102,3 +102,15 @@ input {
 .workExperienceTime {
 	justify-content: right;
 }
+
+h3 {
+	text-align: left;
+}
+
+.subHeading {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px;
+}
