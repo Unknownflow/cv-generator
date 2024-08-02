@@ -1,10 +1,11 @@
 function WorkExperienceCV(workInfo) {
   workInfo = workInfo["workInfo"];
+  console.log(workInfo)
   return (
     <div className='workExperienceCV'>
       <h3>Work experience</h3>  
       {
-        workInfo.map((work) => {
+        workInfo.map((work) => (
           <div key={work.id}>
             <div className='workExperienceHeader'>
               <span>{work.companyName}</span>
@@ -19,7 +20,7 @@ function WorkExperienceCV(workInfo) {
             <div className='workExperienceTitle'>{work.positionTitle}</div>
             <div className='workResponsibilities'>{work.responsibilities}</div>
           </div>
-        })
+        ))
       }
     </div>
   )

@@ -48,7 +48,7 @@ function App() {
   ]})
   
   const [workInfo, setWorkInfo] = useState({
-    data: [workObj]}
+    data: [workObj,]}
   )
 
   const handlePersonalInfoChange = (e) => {
@@ -76,8 +76,7 @@ function App() {
   const removeEducationInfo = (id) => {
     // if there is only 1 education info, clear the data
     if (educationInfo["data"].length === 1) {
-      setEducationInfo({data: [
-        educationObj]
+      setEducationInfo({data: [{...educationObj}]
       })
     } else {
       // remove education info
@@ -110,16 +109,8 @@ function App() {
   const removeWorkInfo = (id) => {
     // if there is only 1 work info, clear the data
     if (workInfo["data"].length === 1) {
-      setWorkInfo({data: [
-        {
-          id: uuidv4(),
-          companyName: "",
-          positionTitle: "",
-          startDate: "",
-          endDate: "",
-          responsibilities: "",
-        },
-      ]})} else {
+      setWorkInfo({data: [{...workObj}],
+      })} else {
         // remove work info
         const newWorkInfo = workInfo["data"].filter(
           work => work.id !== id
