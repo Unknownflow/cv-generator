@@ -1,3 +1,6 @@
+# CV generator
+This project is a CV generator created using ReactJS. It takes in user's education and work details and renders it as a CV template.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
