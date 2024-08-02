@@ -8,6 +8,24 @@ import Resume from './components/Resume';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
+  const educationObj = {
+    id: uuidv4(),
+    schoolName: "",
+    title: "",
+    location: "",
+    startDate: "",
+    endDate: "",
+  }
+
+  const workObj = {
+    id: uuidv4(),
+    companyName: "",
+    positionTitle: "",
+    startDate: "",
+    endDate: "",
+    responsibilities: "",
+  }
+
   const [personalInfo, setPersonalInfo] = useState(
     {
       name: "",
@@ -18,14 +36,7 @@ function App() {
 
   const [educationInfo, setEducationInfo] = useState({
     data: [
-      {
-        id: uuidv4(),
-        schoolName: "",
-        title: "",
-        location: "",
-        startDate: "",
-        endDate: "",
-      },
+      educationObj,
       {
         id: uuidv4(),
         schoolName: "aa",
@@ -37,20 +48,18 @@ function App() {
   ]})
   
   const [workInfo, setWorkInfo] = useState({
-    data: [
-      {
-        id: uuidv4(),
-        companyName: "",
-        positionTitle: "",
-        startDate: "",
-        endDate: "",
-        responsibilities: "",
-      },
-  ]})
+    data: [workObj]}
+  )
 
   const handlePersonalInfoChange = (e) => {
     const key = e.target.id;
     setPersonalInfo({ ...personalInfo, [key]: e.target.value });
+  }
+
+  const addEducationForm = () => {
+    var newEducationInfo = educationInfo["data"];
+    newEducationInfo.push({...educationObj})
+    setEducationInfo({"data": newEducationInfo})
   }
 
   const handleEducationInfoChange = (e, id) => {
@@ -64,27 +73,27 @@ function App() {
     })})
   }
 
-  const removeEducationInfo = (e, id) => {
+  const removeEducationInfo = (id) => {
     // if there is only 1 education info, clear the data
     if (educationInfo["data"].length === 1) {
       setEducationInfo({data: [
-        {
-          id: uuidv4(),
-          schoolName: "",
-          title: "",
-          location: "",
-          startDate: "",
-          endDate: "",
-        },
-      ]})} else {
-        // remove education info
-        const newEducationInfo = educationInfo["data"].filter(
-          education => education.id !== id
-        );
-        setEducationInfo({
-          data: newEducationInfo
-        });
-      }
+        educationObj]
+      })
+    } else {
+      // remove education info
+      const newEducationInfo = educationInfo["data"].filter(
+        education => education.id !== id
+      );
+      setEducationInfo({
+        data: newEducationInfo
+      });
+    }
+  }
+
+  const addWorkForm = () => {
+    var newWorkInfo = workInfo["data"];
+    newWorkInfo.push({...workObj})
+    setWorkInfo({"data": newWorkInfo})
   }
 
   const handleWorkInfoChange = (e, id) => {
@@ -98,7 +107,7 @@ function App() {
     })})
   }
 
-  const removeWorkInfo = (e, id) => {
+  const removeWorkInfo = (id) => {
     // if there is only 1 work info, clear the data
     if (workInfo["data"].length === 1) {
       setWorkInfo({data: [
@@ -133,12 +142,14 @@ function App() {
         <EducationForm 
           educationInfo={educationInfo.data}
           onChange={handleEducationInfoChange}
-          remove={removeEducationInfo}
+          removeEducationInfo={removeEducationInfo}
+          addEducationForm={addEducationForm}
         />
         <WorkExperienceForm 
           workInfo={workInfo.data}
           onChange={handleWorkInfoChange}
-          remove={removeWorkInfo}
+          removeWorkInfo={removeWorkInfo}
+          addWorkForm={addWorkForm}
         />
       </div>
       <div className='resume'>

@@ -2,7 +2,7 @@ import CustomInput from "./CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
-export default function WorkExperienceForm({ workInfo, onChange, remove }) {
+export default function WorkExperienceForm({ workInfo, onChange, removeWorkInfo, addWorkForm }) {
   return (
     <div id="workExperienceForm">
       <div className="sectionHeader">
@@ -17,7 +17,7 @@ export default function WorkExperienceForm({ workInfo, onChange, remove }) {
                 <div>
                   <h3>Work experience {index+1}</h3>
                 </div>
-                <div onClick={(e) => remove(e, work.id)}>
+                <div onClick={(e) => removeWorkInfo(work.id)}>
                   <FontAwesomeIcon icon={ faTrashCan } />
                 </div>
               </div>
@@ -65,6 +65,14 @@ export default function WorkExperienceForm({ workInfo, onChange, remove }) {
           </div>
 
       ))} 
+      <div className="addWork">
+        <button 
+          className="addWorkButton"
+          onClick={addWorkForm}
+        >
+          Add Work
+        </button>
+      </div>
     </div>
   )
 }

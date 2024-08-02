@@ -1,10 +1,5 @@
 function WorkExperienceCV(workInfo) {
   workInfo = workInfo["workInfo"];
-
-  workInfo.map((work) => {
-    console.log('w', work.positionTitle, work.responsibilities, work.companyName, work.startDate, work.endDate)
-  })
-
   return (
     <div className='workExperienceCV'>
       <h3>Work experience</h3>  

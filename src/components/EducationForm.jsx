@@ -2,7 +2,7 @@ import CustomInput from "./CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
-export default function EducationForm({ educationInfo, onChange, remove }) {
+export default function EducationForm({ educationInfo, onChange, removeEducationInfo, addEducationForm }) {
   return (
     <div id="educationForm">
       <div className="sectionHeader">
@@ -17,7 +17,7 @@ export default function EducationForm({ educationInfo, onChange, remove }) {
                 <div>
                   <h3>Education {index+1}</h3>
                 </div>
-                <div onClick={(e) => remove(e, education.id)}>
+                <div onClick={(e) => removeEducationInfo(education.id)}>
                   <FontAwesomeIcon icon={ faTrashCan } />
                 </div>
               </div>
@@ -65,6 +65,14 @@ export default function EducationForm({ educationInfo, onChange, remove }) {
           </div>
         
       ))} 
+      <div className="addEducation">
+        <button 
+          className="addEducationButton"
+          onClick={addEducationForm}
+        >
+          Add Education
+        </button>
+      </div>
     </div>
   )
 }
