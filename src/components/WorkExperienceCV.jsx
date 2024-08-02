@@ -1,12 +1,15 @@
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function WorkExperienceCV(workInfo) {
   workInfo = workInfo["workInfo"];
-  console.log(workInfo)
+
   return (
     <div className='workExperienceCV'>
-      <h3>Work experience</h3>  
+      <h3><FontAwesomeIcon icon={faBriefcase} /> Work experience</h3>  
       {
         workInfo.map((work) => (
-          <div key={work.id}>
+          <div className="workContainer" key={work.id}>
             <div className='workExperienceHeader'>
               <span>{work.companyName}</span>
               <div className='workExperienceTime'>

@@ -1,12 +1,13 @@
 import CustomInput from "./CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 
 export default function EducationForm({ educationInfo, onChange, removeEducationInfo, addEducationForm }) {
   return (
     <div id="educationForm">
       <div className="sectionHeader">
-        <h2>Education</h2>
+        <h2><FontAwesomeIcon icon={faGraduationCap} /> Education</h2>
       </div>
       
       {

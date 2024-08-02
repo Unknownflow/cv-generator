@@ -49,9 +49,9 @@ input {
 .resume {
 	background-color: #b9bcc2;
 	padding: 50px;
-	margin: 40px;
-	width: 600px;
-	height: 750px;
+	margin: 20px 40px;
+	width: 750px;
+	height: 950px;
 	text-align: left;
 }
 
@@ -95,7 +95,7 @@ input {
 
 .personalInfoCV,
 .educationInfoCV {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .educationTime,
@@ -113,4 +113,9 @@ h3 {
 	justify-content: space-between;
 	align-items: center;
 	margin: 10px;
+}
+
+.educationContainer,
+.workContainer {
+	margin-bottom: 20px;
 }

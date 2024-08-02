@@ -1,12 +1,13 @@
 import CustomInput from "./CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 export default function WorkExperienceForm({ workInfo, onChange, removeWorkInfo, addWorkForm }) {
   return (
     <div id="workExperienceForm">
       <div className="sectionHeader">
-          <h2>Work experience</h2>
+          <h2><FontAwesomeIcon icon={faBriefcase} /> Work experience</h2>
       </div>
 
       {

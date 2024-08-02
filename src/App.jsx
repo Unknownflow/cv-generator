@@ -28,27 +28,32 @@ function App() {
 
   const [personalInfo, setPersonalInfo] = useState(
     {
-      name: "",
-      email: "",
-      phoneNo: "",
+      name: "John Doe",
+      email: "johndoe@gmail.com",
+      phoneNo: "(123) 456 789",
     }
   )
 
   const [educationInfo, setEducationInfo] = useState({
-    data: [
-      educationObj,
-      {
-        id: uuidv4(),
-        schoolName: "aa",
-        title: "a",
-        location: "a",
-        startDate: "a",
-        endDate: "a",
-      },
-  ]})
+    data: [{
+      id: uuidv4(),
+      schoolName: "Massachusetts Institute of Technology",
+      title: "Computer Science Degree",
+      location: "USA",
+      startDate: "2020-01-01",
+      endDate: "2024-12-31",
+    }]
+  })
   
   const [workInfo, setWorkInfo] = useState({
-    data: [workObj,]}
+    data: [{
+      id: uuidv4(),
+      companyName: "Google",
+      positionTitle: "Software Engineer",
+      startDate: "2022-06-01",
+      endDate: "2022-09-31",
+      responsibilities: "Aided Google in the development of their website as an internship",
+    }]}
   )
 
   const handlePersonalInfoChange = (e) => {
@@ -59,7 +64,7 @@ function App() {
   const addEducationForm = () => {
     var newEducationInfo = educationInfo["data"];
     newEducationInfo.push({...educationObj})
-    setEducationInfo({"data": newEducationInfo})
+    setEducationInfo({data: newEducationInfo})
   }
 
   const handleEducationInfoChange = (e, id) => {
