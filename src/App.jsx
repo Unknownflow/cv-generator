@@ -6,6 +6,7 @@ import WorkExperienceForm from './components/WorkExperienceForm'
 import { useState } from 'react';
 import Resume from './components/Resume';
 import { v4 as uuidv4 } from 'uuid';
+import SaveAsPdf from './components/SaveAsPdf';
 
 function App() {
   const educationObj = {
@@ -178,6 +179,7 @@ function App() {
           addWorkForm={addWorkForm}
           toggleWork={toggleWork}
         />
+        <SaveAsPdf />
       </div>
       <div className='resume'>
         <Resume 

@@ -47,10 +47,10 @@ input {
 }
 
 .resume {
-	background-color: #b9bcc2;
+	background-color: white;
 	padding: 50px;
 	margin: 20px 40px;
-	width: 750px;
+	width: 715px;
 	height: 950px;
 	text-align: left;
 }
@@ -130,4 +130,8 @@ h3 {
 
 .align-left {
 	text-align: left;
+}
+
+.download-cv {
+	margin: 20px;
 }
