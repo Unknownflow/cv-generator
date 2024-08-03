@@ -119,3 +119,15 @@ h3 {
 .workContainer {
 	margin-bottom: 20px;
 }
+
+.subHeadingIcons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	scale: 1.25;
+	gap: 10px;
+}
+
+.align-left {
+	text-align: left;
+}

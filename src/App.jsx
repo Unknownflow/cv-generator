@@ -15,6 +15,7 @@ function App() {
     location: "",
     startDate: "",
     endDate: "",
+    isShown: true,
   }
 
   const workObj = {
@@ -24,6 +25,8 @@ function App() {
     startDate: "",
     endDate: "",
     responsibilities: "",
+    isShown: true,
+
   }
 
   const [personalInfo, setPersonalInfo] = useState(
@@ -42,6 +45,7 @@ function App() {
       location: "USA",
       startDate: "2020-01-01",
       endDate: "2024-12-31",
+      isShown: true,
     }]
   })
   
@@ -53,6 +57,7 @@ function App() {
       startDate: "2022-06-01",
       endDate: "2022-09-31",
       responsibilities: "Aided Google in the development of their website as an internship",
+      isShown: true,
     }]}
   )
 
@@ -77,6 +82,18 @@ function App() {
         }
     })})
   }
+
+  const toggleEducation = (id) => {
+    setEducationInfo({...educationInfo, 
+      educationInfo: educationInfo.data.map(educationInfoData => {
+        if (educationInfoData.id === id) {
+          const isShown = educationInfoData["isShown"]
+          educationInfoData["isShown"] = !isShown;
+        
+        return educationInfoData;
+        }
+    })})
+  } 
 
   const removeEducationInfo = (id) => {
     // if there is only 1 education info, clear the data
@@ -111,6 +128,18 @@ function App() {
     })})
   }
 
+  const toggleWork = (id) => {
+    setWorkInfo({...workInfo, 
+      workInfo: workInfo.data.map(workInfoData => {
+        if (workInfoData.id === id) {
+          const isShown = workInfoData["isShown"]
+          workInfoData["isShown"] = !isShown;
+        
+        return workInfoData;
+        }
+    })})
+  } 
+
   const removeWorkInfo = (id) => {
     // if there is only 1 work info, clear the data
     if (workInfo["data"].length === 1) {
@@ -140,12 +169,14 @@ function App() {
           onChange={handleEducationInfoChange}
           removeEducationInfo={removeEducationInfo}
           addEducationForm={addEducationForm}
+          toggleEducation={toggleEducation}
         />
         <WorkExperienceForm 
           workInfo={workInfo.data}
           onChange={handleWorkInfoChange}
           removeWorkInfo={removeWorkInfo}
           addWorkForm={addWorkForm}
+          toggleWork={toggleWork}
         />
       </div>
       <div className='resume'>
